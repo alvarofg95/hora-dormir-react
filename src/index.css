@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #202220;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.timeSelector {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.timeSelector > select {
+  width: 28%;
+  height: 40px;
+  padding: 6px;
+  border-radius: 10px;
+  border-color: #fff;
+  background: none;
+  color: #fff;
+  font-size: 20px;
+  background-color: #202220;
+  outline: none;
+}
+
+.selector {
+  margin-right: 2%;
+}
+
+.calculateDiv {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.calculateDiv > button {
+  width: 200px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #fff;
+  display: inline-flex;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.calculateDiv > button > span {
+  margin-top: 13px;
+  margin-left: 25px;
+}
