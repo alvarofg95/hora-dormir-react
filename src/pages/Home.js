@@ -85,7 +85,7 @@ class Home extends Component {
           </div>
         )}
         {result.length ? (
-          <div>
+          <div className="results">
             <p>Te deberías intentar quedar dormido a estas horas:</p>
             <div className="resultsDiv">
               {result.map((item, i) => (

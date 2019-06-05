@@ -60,7 +60,7 @@ code {
 }
 
 .backButton {
-  width: 180px;
+  width: 150px;
   margin-top: 40px;
   font-size: 20px;
   border-radius: 10px;
@@ -72,10 +72,18 @@ code {
   outline: none;
 }
 
-.calculateDiv > button > span,
-.backButton > span {
+.calculateDiv > button > span {
   margin-top: 7px;
   margin-left: 25px;
+}
+
+.backButton > span {
+  margin-top: 7px;
+  margin-left: 17px;
+}
+
+.results {
+  margin-bottom: 30px;
 }
 
 .resultsDiv > span {
@@ -83,6 +91,15 @@ code {
   font-style: italic;
   font-size: 23px;
   font-weight: bold;
+}
+
+@media (max-width: 675px) {
+  .resultsDiv {
+    display: grid;
+  }
+  .resultsDiv > span {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 600px) {
