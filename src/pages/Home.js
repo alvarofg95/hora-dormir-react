@@ -1,171 +1,32 @@
-import React, { Component } from 'react';
-import { ARRAY_HOURS, ARRAY_MINUTES, calculateSleep, calculateWakeUp } from '../utils';
+import React from 'react';
+export default () => (
+  <div>
+    <h1>¿Cuántas horas hay que dormir?</h1>
+    <p>
+      Todo el mundo sabe que para mantener una vida saludable hace falta tener una serie de hábitos
+      que nos ayudan a mejorar nuestra salud física y mental, al pensar en estos hábitos a todos se
+      nos vienen a la cabeza actividades como <i>hacer deporte</i>, <i>dieta sana</i>,{' '}
+      <i>no beber</i>, <i>no fumar</i>, etc., pero poca gente se acuerda de que nuestro sueño es uno
+      de los factores más importantes para la salud.
+    </p>
+    <p>
+      Por desgracia hoy en día a todos nos cuesta dormir bien y el resultado es tener a personas con
+      energía el lunes y el martes, pero a medida que avanza la semana nos vamos agotando más y más
+      esperando a que llegue el fin de semana para poder dormir plácidamente y descansar por fin.
+    </p>
+    <p>
+      Siento decirte que de esa forma no se descansa correctamente, y el descanso es tan importante
+      o más que cualquier otro hábito saludable y desde CONTADORDEHORAS queremos hacerte ver que
+      tienes que cuidar tu sueño.
+    </p>
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loadingWakeUp: false,
-      loading: false,
-      error: null,
-      result: [],
-      resultWakeUp: []
-    };
-    this.hour = React.createRef();
-    this.minutes = React.createRef();
-    this.type = React.createRef();
-
-    this.calculateSleep = this.calculateSleep.bind(this);
-    this.calculateWakeUp = this.calculateWakeUp.bind(this);
-    this.reload = this.reload.bind(this);
-    this.reloadWakeUp = this.reloadWakeUp.bind(this);
-  }
-
-  calculateSleep() {
-    this.setState({ loading: true, disabled: true });
-    const hour = this.hour.current.value;
-    const minutes = this.minutes.current.value;
-    const type = this.type.current.value;
-
-    if (hour !== '' && minutes !== '') {
-      let formattedHour = parseInt(hour);
-      const formattedMinutes = parseInt(minutes);
-      const result = calculateSleep(formattedHour, formattedMinutes, type);
-      this.setState({ error: null, loading: false, result });
-    } else {
-      let error = 'No has seleccionado ni las horas ni los minutos';
-      if (hour === '' && minutes !== '') {
-        error = 'No has seleccionado la hora a la que te quieres despertar';
-      } else if (hour !== '' && minutes === '') {
-        error = 'Debes especificar en qué minuto quieres despertar';
-      }
-      this.setState({ error, loading: false, disabled: false });
-    }
-  }
-
-  calculateWakeUp(e) {
-    e.preventDefault();
-    console.log('wakeUp');
-    this.setState({ loadingWakeUp: true });
-    const actualDateTime = new Date();
-    const hour = actualDateTime.getHours();
-    const finalHour = hour > 12 ? hour - 12 : hour;
-    const type = hour > 12 ? 'pm' : 'am';
-    const minutes = actualDateTime.getHours();
-    const result = calculateWakeUp(finalHour, minutes, type);
-    this.setState({ loadingWakeUp: false, resultWakeUp: result });
-  }
-
-  reload() {
-    this.hour.current.value = '';
-    this.minutes.current.value = '';
-    this.setState({ loading: false, disabled: false, result: [], error: null });
-  }
-
-  reloadWakeUp() {
-    this.setState({ loadingWakeUp: false, resultWakeUp: [] });
-  }
-
-  render() {
-    const { error, result, disabled, resultWakeUp, loading, loadingWakeUp } = this.state;
-    return (
-      <div>
-        <h1>¿Cuántas horas hay que dormir?</h1>
-        <p>A qué hora me tengo que dormir si me quiero despertar a las...</p>
-        <div className="timeSelector">
-          <select disabled={disabled} ref={this.hour} className="selector">
-            <option value="">Hora</option>
-            {ARRAY_HOURS.map(hour => (
-              <option key={hour} value={`${hour}`}>
-                {hour}
-              </option>
-            ))}
-          </select>
-          <select disabled={disabled} ref={this.minutes} className="selector">
-            <option value="">Minutos</option>
-            {ARRAY_MINUTES.map(minutes => (
-              <option key={minutes} value={`${minutes}`}>
-                {minutes}
-              </option>
-            ))}
-          </select>
-          <select disabled={disabled} ref={this.type}>
-            <option value="am">AM</option>
-            <option value="pm">PM</option>
-          </select>
-        </div>
-        {!result.length && (
-          <div className="calculateDiv">
-            <button onClick={this.calculateSleep} title="Calcular a qué hora me tengo que dormir">
-              <img
-                width="40"
-                src={require('../images/alarm-clock.svg')}
-                alt="¿Cuántas horas hay que dormir?"
-              />
-              <span>Calcular</span>
-            </button>
-          </div>
-        )}
-        {result.length ? (
-          <div className="results">
-            <p>Te deberías intentar quedar dormido a estas horas:</p>
-            {loading && <span>Cargando...</span>}
-            <div className="resultsDiv">
-              {result.map((item, i) => (
-                <span key={i}>
-                  {item.hour}:{item.minutes} {item.type.toUpperCase()}
-                </span>
-              ))}
-            </div>
-            <button className="backButton" onClick={this.reload} title="Reiniciar">
-              <img
-                width="40"
-                src={require('../images/circular-arrow.svg')}
-                alt="¿Cuántas horas hay que dormir?"
-              />
-              <span>Reiniciar</span>
-            </button>
-          </div>
-        ) : null}
-        {error && <p>{error}</p>}
-        <div>
-          <p>¿A qué hora me debería despertar si me duermo ahora?</p>
-          <div className="calculateDiv">
-            <button onClick={this.calculateWakeUp} title="Calcular a qué hora me debería despertar">
-              <img
-                width="40"
-                src={require('../images/slumber.svg')}
-                alt="¿Cuántas horas hay que dormir?"
-              />
-              <span>Dormir</span>
-            </button>
-          </div>
-        </div>
-
-        {resultWakeUp.length ? (
-          <div className="results">
-            <p>Te deberías despertar a estas horas:</p>
-            {loadingWakeUp && <span>Cargando...</span>}
-            <div className="resultsWakeUpDiv">
-              {resultWakeUp.map((item, i) => (
-                <span key={i}>
-                  {item.hour}:{item.minutes} {item.type.toUpperCase()}
-                </span>
-              ))}
-            </div>
-            <button className="backButton" onClick={this.reloadWakeUp} title="Reiniciar">
-              <img
-                width="40"
-                src={require('../images/circular-arrow.svg')}
-                alt="¿Cuántas horas hay que dormir?"
-              />
-              <span>Reiniciar</span>
-            </button>
-          </div>
-        ) : null}
-      </div>
-    );
-  }
-}
-
-export default Home;
+    <h2>Desventajas de dormir correctamente</h2>
+    <ul>
+      <li>
+        <b>Falta de energía</b>: no dormir nos puede suponer estar constantemente en un estado de
+        agotamiento que además de generar pereza, frena nuestras capacidades, no dejando a nuestro
+        cuerpo y mente reaccionar con rapidez.
+      </li>
+    </ul>
+  </div>
+);
