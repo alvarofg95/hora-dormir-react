@@ -59,7 +59,28 @@ code {
   outline: none;
 }
 
-.calculateDiv > button > span {
-  margin-top: 13px;
+.backButton {
+  width: 180px;
+  margin-top: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #fff;
+  display: inline-flex;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.calculateDiv > button > span,
+.backButton > span {
+  margin-top: 7px;
   margin-left: 25px;
+}
+
+.resultsDiv > span {
+  padding: 20px;
+  font-style: italic;
+  font-size: 23px;
+  font-weight: bold;
 }
