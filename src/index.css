@@ -84,3 +84,16 @@ code {
   font-size: 23px;
   font-weight: bold;
 }
+
+@media (max-width: 600px) {
+  .timeSelector {
+    display: grid;
+  }
+  .selector {
+    margin: 0px;
+  }
+  .timeSelector > select {
+    width: 70%;
+    margin: 5px auto;
+  }
+}
