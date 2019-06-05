@@ -60,7 +60,7 @@ code {
 }
 
 .backButton {
-  width: 150px;
+  width: 200px;
   margin-top: 40px;
   font-size: 20px;
   border-radius: 10px;
@@ -72,21 +72,18 @@ code {
   outline: none;
 }
 
-.calculateDiv > button > span {
-  margin-top: 7px;
-  margin-left: 25px;
-}
-
+.calculateDiv > button > span,
 .backButton > span {
   margin-top: 7px;
-  margin-left: 17px;
+  margin-left: 25px;
 }
 
 .results {
   margin-bottom: 30px;
 }
 
-.resultsDiv > span {
+.resultsDiv > span,
+.resultsWakeUpDiv > span {
   padding: 20px;
   font-style: italic;
   font-size: 23px;
@@ -112,5 +109,14 @@ code {
   .timeSelector > select {
     width: 70%;
     margin: 5px auto;
+  }
+}
+
+@media (max-width: 985px) {
+  .resultsWakeUpDiv {
+    display: grid;
+  }
+  .resultsWakeUpDiv > span {
+    padding: 10px;
   }
 }

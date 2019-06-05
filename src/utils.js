@@ -25,10 +25,10 @@ const formatHour = (hour, minutes = 0) => {
   return finalHour > 12 ? finalHour - 12 : finalHour;
 };
 
-export const calculate = (hour, minutes, type) => {
+export const calculateSleep = (hour, minutes, type) => {
   const firstHour = {
     hour: formatHour(hour + 3),
-    minutes: minutes,
+    minutes: formatMinutes(minutes),
     type: type === 'am' ? 'pm' : 'am'
   };
   const minutesHalf = minutes + 30;
@@ -39,7 +39,7 @@ export const calculate = (hour, minutes, type) => {
   };
   const thirdHour = {
     hour: formatHour(hour + 6),
-    minutes: minutes,
+    minutes: formatMinutes(minutes),
     type
   };
   const fourthHour = {
@@ -49,4 +49,39 @@ export const calculate = (hour, minutes, type) => {
   };
 
   return [firstHour, secondHour, thirdHour, fourthHour];
+};
+
+export const calculateWakeUp = (hour, minutes, type) => {
+  const minutesHalf = minutes + 30;
+  const firstHour = {
+    hour: formatHour(hour + 1, minutesHalf),
+    minutes: formatMinutes(minutesHalf),
+    type
+  };
+  const secondHour = {
+    hour: formatHour(hour + 3),
+    minutes: formatMinutes(minutes),
+    type
+  };
+  const thirdHour = {
+    hour: formatHour(hour + 4),
+    minutes: formatMinutes(minutesHalf),
+    type
+  };
+  const fourthHour = {
+    hour: formatHour(hour + 6),
+    minutes: formatMinutes(minutes),
+    type
+  };
+  const fifthHour = {
+    hour: formatHour(hour + 7),
+    minutes: formatMinutes(minutesHalf),
+    type
+  };
+  const sixthHour = {
+    hour: formatHour(hour + 9),
+    minutes: formatMinutes(minutes),
+    type
+  };
+  return [firstHour, secondHour, thirdHour, fourthHour, fifthHour, sixthHour];
 };
