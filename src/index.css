@@ -14,8 +14,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+a {
+  color: #fff;
+}
+
 .container {
   width: 80%;
+  margin: 0 auto;
+}
+
+.homeJustify {
+  text-align: justify;
+  font-size: 18px;
+}
+
+.imgHome {
+  display: block;
   margin: 0 auto;
 }
 
@@ -109,6 +123,9 @@ code {
   .timeSelector > select {
     width: 70%;
     margin: 5px auto;
+  }
+  .imgHome {
+    width: 100%;
   }
 }
 
