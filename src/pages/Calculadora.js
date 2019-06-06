@@ -73,10 +73,18 @@ class Calculadora extends Component {
         <Helmet>
           <title>Calcula a qué hora tienes que despertar</title>
           <meta name="description" content="testing react helmet" />
-          <meta name="keywords" cpntent="react,seo,helmet" />
+          <meta name="keywords" content="react,seo,helmet" />
         </Helmet>
         <h1>¿Cuántas horas hay que dormir?</h1>
-        <p>A qué hora me tengo que dormir si me quiero despertar a las...</p>
+        <p>
+          Nuestra calculadora funciona contando hacia atrás en ciclos de sueño. Si te despiertas
+          durante ciclo de sueño te sentirás muy agotado y algo atontado, ¡pero despertarte entre
+          ciclos te hará sentir renovado y espabilado!
+        </p>
+
+        <h2 className="font-size-25">
+          A qué hora me tengo que dormir si me quiero despertar a las...
+        </h2>
         <div className="timeSelector">
           <select disabled={disabled} ref={this.hour} className="selector">
             <option value="">Hora</option>
@@ -139,7 +147,7 @@ class Calculadora extends Component {
         {error && <p>{error}</p>}
         {!resultWakeUp.length ? (
           <div>
-            <p>¿A qué hora me debería despertar si me duermo ahora?</p>
+            <h2 className="font-size-25">¿A qué hora me debería despertar si me duermo ahora?</h2>
             <div className="calculateDiv">
               <button
                 onClick={this.calculateWakeUp}
