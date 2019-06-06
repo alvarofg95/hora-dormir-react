@@ -122,6 +122,10 @@ class Calculadora extends Component {
                 </span>
               ))}
             </div>
+            <p>
+              Los seres humanos tardamos 14 minutos en quedarnos dormidos, no olvides tenerlo en
+              cuenta para tu planificación.
+            </p>
             <button className="backButton" onClick={this.reload} title="Reiniciar">
               <img
                 width="40"
@@ -133,19 +137,24 @@ class Calculadora extends Component {
           </div>
         ) : null}
         {error && <p>{error}</p>}
-        <div>
-          <p>¿A qué hora me debería despertar si me duermo ahora?</p>
-          <div className="calculateDiv">
-            <button onClick={this.calculateWakeUp} title="Calcular a qué hora me debería despertar">
-              <img
-                width="40"
-                src={require('../images/slumber.svg')}
-                alt="¿Cuántas horas hay que dormir?"
-              />
-              <span>Dormir</span>
-            </button>
+        {!resultWakeUp.length ? (
+          <div>
+            <p>¿A qué hora me debería despertar si me duermo ahora?</p>
+            <div className="calculateDiv">
+              <button
+                onClick={this.calculateWakeUp}
+                title="Calcular a qué hora me debería despertar"
+              >
+                <img
+                  width="40"
+                  src={require('../images/slumber.svg')}
+                  alt="¿Cuántas horas hay que dormir?"
+                />
+                <span>Dormir</span>
+              </button>
+            </div>
           </div>
-        </div>
+        ) : null}
 
         {resultWakeUp.length ? (
           <div className="results">
@@ -158,6 +167,9 @@ class Calculadora extends Component {
                 </span>
               ))}
             </div>
+            <p>
+              Se considera que se ha dormido bien cuando se han completado de 5 a 6 ciclos de sueño.
+            </p>
             <button className="backButton" onClick={this.reloadWakeUp} title="Reiniciar">
               <img
                 width="40"
