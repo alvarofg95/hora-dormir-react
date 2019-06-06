@@ -1,7 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Image from '../components/Image';
+
 export default () => (
   <div className="homeJustify">
+    <Helmet>
+      <title>¿Cuántas horas hay que dormir?</title>
+      <meta name="description" content="testing react helmet" />
+      <meta name="keywords" cpntent="react,seo,helmet" />
+    </Helmet>
     <h1>¿Cuántas horas hay que dormir?</h1>
     <p>
       Todo el mundo sabe que para mantener una vida saludable hace falta tener una serie de hábitos
