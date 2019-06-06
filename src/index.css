@@ -36,6 +36,11 @@ a {
   font-size: 18px;
 }
 
+.homeJustify > h1,
+.homeJustify > h2 {
+  text-align: center;
+}
+
 .imgHome {
   display: block;
   margin: 0 auto;
