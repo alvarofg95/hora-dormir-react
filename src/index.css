@@ -26,6 +26,34 @@ a {
   color: #fff;
 }
 
+.divMenu {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.divMenu > div {
+  display: grid;
+  padding: 10px;
+}
+
+.menuItem {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btnMenu {
+  background-color: white;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.iconMenu {
+  vertical-align: middle;
+  margin-top: 1px;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
