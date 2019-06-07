@@ -58,7 +58,7 @@ class Calculadora extends Component {
 
   reload() {
     this.hour.current.value = '';
-    this.minutes.current.value = '';
+    this.minutes.current.value = '00';
     this.setState({ loading: false, disabled: false, result: [], error: null });
   }
 
@@ -95,7 +95,6 @@ class Calculadora extends Component {
             ))}
           </select>
           <select disabled={disabled} ref={this.minutes} className="selector">
-            <option value="">Minutos</option>
             {ARRAY_MINUTES.map(minutes => (
               <option key={minutes} value={`${minutes}`}>
                 {minutes}
@@ -145,9 +144,10 @@ class Calculadora extends Component {
           </div>
         ) : null}
         {error && <p>{error}</p>}
-        {!resultWakeUp.length ? (
-          <div>
-            <h2 className="font-size-25">¿A qué hora me debería despertar si me duermo ahora?</h2>
+
+        <div>
+          <h2 className="font-size-25">¿A qué hora me debería despertar si me duermo ahora?</h2>
+          {!resultWakeUp.length ? (
             <div className="calculateDiv">
               <button
                 onClick={this.calculateWakeUp}
@@ -161,8 +161,8 @@ class Calculadora extends Component {
                 <span>Dormir</span>
               </button>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
 
         {resultWakeUp.length ? (
           <div className="results">
