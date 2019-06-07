@@ -6,8 +6,8 @@ export default () => (
   <div className="homeJustify">
     <Helmet>
       <title>¿Cuántas horas hay que dormir?</title>
-      <meta name="description" content="testing react helmet" />
-      <meta name="keywords" cpntent="react,seo,helmet" />
+      <meta name="description" content="La web que te muestra la importancia de dormir más de 6 horas y te calcula cuántas horas hay que dormir para despertarte correctamente" />
+      <meta name="keywords" content="Dormir, Sueño, Hora, Hora de dormir, Calculadora, Calcular hora despertar, despertar bien" />
     </Helmet>
     <h1>¿Cuántas horas hay que dormir?</h1>
     <p>
