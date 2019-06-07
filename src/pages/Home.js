@@ -24,7 +24,7 @@ export default () => (
     </p>
     <p>
       Siento decirte que de esa forma no se descansa correctamente, y el descanso es tan importante
-      o más que cualquier otro hábito saludable y desde CONTADORDEHORAS queremos hacerte ver que
+      o más que cualquier otro hábito saludable y desde <b>Hora de Dormir</b> queremos hacerte ver que
       tienes que cuidar tu sueño.
     </p>
 
