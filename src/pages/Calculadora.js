@@ -72,7 +72,7 @@ class Calculadora extends Component {
       <div>
         <Helmet>
           <title>Calcula a qué hora tienes que despertar</title>
-          <meta name="description" content="testing react helmet" />
+          <meta name="description" content="Calcular a qué hora me tengo que despertar si me duermo ahora y a qué hora me tengo que dormir para despertar a una determinada hora" />
           <meta name="keywords" content="Dormir, Sueño, Hora, Hora de dormir, Calculadora, Calcular hora despertar, despertar bien, a qué hora me tengo que dormir" />
         </Helmet>
         <h1>¿Cuántas horas hay que dormir?</h1>
