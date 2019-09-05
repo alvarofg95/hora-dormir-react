@@ -6,8 +6,14 @@ export default () => (
   <div className="homeJustify">
     <Helmet>
       <title>¿Cuántas horas hay que dormir?</title>
-      <meta name="description" content="La web que te muestra la importancia de dormir más de 6 horas y te calcula cuántas horas hay que dormir para despertarte correctamente" />
-      <meta name="keywords" content="Dormir, Sueño, Hora, Hora de dormir, Calculadora, Calcular hora despertar, despertar bien" />
+      <meta
+        name="description"
+        content="La web que te muestra la importancia de dormir más de 6 horas y te calcula cuántas horas hay que dormir para despertarte correctamente"
+      />
+      <meta
+        name="keywords"
+        content="Dormir, Sueño, Hora, Hora de dormir, Calculadora, Calcular hora despertar, despertar bien"
+      />
     </Helmet>
     <h1>¿Cuántas horas hay que dormir?</h1>
     <p>
@@ -24,8 +30,8 @@ export default () => (
     </p>
     <p>
       Siento decirte que de esa forma no se descansa correctamente, y el descanso es tan importante
-      o más que cualquier otro hábito saludable y desde <b>Hora de Dormir</b> queremos hacerte ver que
-      tienes que cuidar tu sueño.
+      o más que cualquier otro hábito saludable y desde <b>Hora de Dormir</b> queremos hacerte ver
+      que tienes que cuidar tu sueño.
     </p>
 
     <h2>Desventajas de no dormir correctamente</h2>
