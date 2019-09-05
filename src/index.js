@@ -5,12 +5,15 @@ import WebFont from 'webfontloader';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { setPolyfills } from './utils';
 
 WebFont.load({
   google: {
     families: ['Josefin Slab']
   }
 });
+
+setPolyfills();
 
 ReactDOM.render(
   <BrowserRouter>
